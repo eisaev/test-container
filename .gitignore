@@ -1,0 +1,13 @@
+/.cache
+/.ccache
+/.env_file
+/.mypy_cache
+/.vscode
+
+/.vscode-server/extensions/*
+/.vscode-server/extensionsCache/*
+!/.vscode-server/extensions/.gitkeep
+!/.vscode-server/extensionsCache/.gitkeep
+
+/CMakeUserPresets.json
+/build*

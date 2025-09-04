@@ -1,0 +1,10 @@
+services:
+  devenv:
+    container_name: dev-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    env_file:
+      - ../.env_file

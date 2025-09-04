@@ -1,0 +1,110 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 21,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}"
+        },
+        {
+            "name": "linux-clang",
+            "inherits": "base",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "/usr/bin/clang",
+                "CMAKE_CXX_COMPILER": "/usr/bin/clang++"
+            }
+        },
+        {
+            "displayName": "Linux Clang (Debug)",
+            "name": "linux-clang-debug",
+            "inherits": "linux-clang",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "displayName": "Linux Clang (Release)",
+            "name": "linux-clang-release",
+            "inherits": "linux-clang",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "displayName": "Linux Clang (RelWithDebInfo)",
+            "name": "linux-clang-reldbg",
+            "inherits": "linux-clang",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        },
+        {
+            "displayName": "Linux Clang (MinSizeRel)",
+            "name": "linux-clang-relmin",
+            "inherits": "linux-clang",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            }
+        },
+        {
+            "name": "linux-gcc",
+            "inherits": "base",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "/usr/bin/gcc",
+                "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+            }
+        },
+        {
+            "displayName": "Linux GCC (Debug)",
+            "name": "linux-gcc-debug",
+            "inherits": "linux-gcc",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "displayName": "Linux GCC (Release)",
+            "name": "linux-gcc-release",
+            "inherits": "linux-gcc",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "displayName": "Linux GCC (RelWithDebInfo)",
+            "name": "linux-gcc-reldbg",
+            "inherits": "linux-gcc",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        },
+        {
+            "displayName": "Linux GCC (MinSizeRel)",
+            "name": "linux-gcc-relmin",
+            "inherits": "linux-gcc",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "default",
+            "configurePreset": "linux-clang-debug"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "default",
+            "configurePreset": "linux-clang-debug"
+        }
+    ]
+}

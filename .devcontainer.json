@@ -1,0 +1,51 @@
+{
+    "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+    "name": "Dev Container",
+    "dockerComposeFile": "docker/docker-compose.yml",
+    "service": "devenv",
+    "overrideCommand": true,
+    "postCreateCommand": "/usr/bin/rm -rf /home/developer/.vscode-server/extensions* && /usr/bin/ln -s /workspace/.vscode-server/extensions /home/developer/.vscode-server/extensions && /usr/bin/ln -s /workspace/.vscode-server/extensionsCache /home/developer/.vscode-server/extensionsCache",
+    "postStartCommand": "/usr/bin/sleep infinity &",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // "ms-python.python",
+                // "ms-python.vscode-pylance",
+                // "ms-python.autopep8",
+                // "ms-python.isort",
+                // "ms-python.flake8",
+                // "ms-python.pylint",
+                // "ms-python.mypy-type-checker",
+                // "ms-python.vscode-python-envs",
+                //
+                // "ms-azuretools.vscode-containers",
+                "sonarsource.sonarlint-vscode",
+                //
+                // "llvm-vs-code-extensions.vscode-clangd",
+                "kylinideteam.kylin-clangd",
+                //
+                // "ms-vscode.cpptools",
+                // "ms-vscode.cpptools-extension-pack",
+                // "ms-vscode.cpptools-themes",
+                //
+                // "ms-vscode.cmake-tools",
+                // "twxs.cmake"
+                "kylinideteam.kylin-cmake-tools",
+                //
+                "vadimcn.vscode-lldb"
+            ],
+            "settings": {
+                "editor.formatOnSave": true,
+                "editor.inlayHints.enabled": "offUnlessPressed",
+                "cmake.useCMakePresets": "always",
+                "cmake.codeLLDBDebugConfig": {
+                    "terminal": "integrated"
+                },
+                "clangd.useBuiltInClangdIfAvailable": false,
+                "clangd.path": "/usr/bin/clangd",
+                "sonarlint.ls.javaHome": "/usr"
+            }
+        }
+    }
+}
